@@ -4,23 +4,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import coil.compose.AsyncImage
 import com.yourbusiness.apiswithktor.viewModels.JokeViewModel
-import io.ktor.client.*
-
 
 @Composable
 fun JokeApp() {
     val viewModel: JokeViewModel = viewModel()
-    val joke by viewModel.joke.observeAsState()
-    val isLoading by viewModel.isLoading.observeAsState(false)
+    val joke by viewModel.joke.collectAsState()
+    val isLoading by viewModel.isLoading.collectAsState()
 
     Column(
         modifier = Modifier
