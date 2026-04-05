@@ -10,7 +10,7 @@ object NetworkClient {
     private val okHttpClient = OkHttpClient.Builder()
         .build()
 
-    val jokeApi: JokeApi = Retrofit.Builder()
+    val jokeApi: JokeApi = Retrofit.Builder() // implementation for all
         .baseUrl(BASE_URL)
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
