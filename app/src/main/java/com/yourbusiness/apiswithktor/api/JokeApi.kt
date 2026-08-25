@@ -7,3 +7,8 @@ interface JokeApi {
     @GET("random_joke")
     suspend fun getJoke(): JokeResponse
 }
+
+
+
+// contract
+// it separates "what" form "how"
